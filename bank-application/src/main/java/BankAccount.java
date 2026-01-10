@@ -122,23 +122,14 @@ public class BankAccount {
 		return amountWithdrawn;
 	}
 	
-	public void depositMoney(double depositAmount) {
+	public boolean depositMoney(double depositAmount) {
 		if (depositAmount >= 0) {
 			balance = balance + depositAmount;
+			return true;
 		}
+		return false;
 	}
 
-	// public boolean withdrawMoney(double withdrawAmount) {
-	// 	if (withdrawAmount >= 0 && balance >= withdrawAmount && withdrawAmount < withdrawLimit
-	// 			&& withdrawAmount + amountWithdrawn <= withdrawLimit) {
-	// 		balance = balance - withdrawAmount;
-	// 		success = true;
-	// 		amountWithdrawn += withdrawAmount;
-	// 	} else {
-	// 		success = false;
-	// 	}
-	// 	return success;
-	// }
 	public boolean withdrawMoney(double withdrawAmount) { 
 		if (withdrawAmount >= 0 && balance >= withdrawAmount && withdrawAmount + amountWithdrawn <= withdrawLimit) {   // decision point 1 (if)
 			balance = balance - withdrawAmount;
