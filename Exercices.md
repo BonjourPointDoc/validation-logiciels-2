@@ -179,3 +179,72 @@ I added a simple test :
 I reran **mvn clean test** and **mvn jacoco:report**, and the coverage has indeed increased :
 ![exo9](img/capture12.png)
 
+## Exercise 10  (Repo 2): Extend a CI workflow (GitHub Actions)
+**Initial workflow**
+```yaml
+name: Maven CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Run tests
+        working-directory: bank-application
+        run: mvn clean test
+```
+![exo10](img/capture13.png)
+
+**Extended version**
+```yaml
+name: Maven CI Extended
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Run tests
+        working-directory: bank-application
+        run: mvn clean test
+
+      - name: Package application
+        working-directory: bank-application
+        run: mvn package
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: maven-build
+          path: target/
+```
+
+![exo10](img/capture14.png)
