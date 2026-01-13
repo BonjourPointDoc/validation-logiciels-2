@@ -26,29 +26,29 @@ I updated the **junit** dependency to a more recent version and added **hamcrest
 ### mvn clean
 **Phases :**  
 - Deleting **/target** folder.
-![exo6](img/capture2.png)
+![exo7](img/capture2.png)
 **Files/folders in target :**
 - None
 
 ### mvn test
 **Phases :**
-![exo6](img/capture3.png)
+![exo7](img/capture3.png)
 - Validating resources
 - Compiling
 - Tests
 **Files/folders in target :**
-![exo6](img/capture4.png)
+![exo7](img/capture4.png)
 
 ### mvn package
 **Phases :**
-![exo6](img/capture5.png)
+![exo7](img/capture5.png)
 - Validating resources
 - Compiling
 - Tests
 - Packaging phase -> creates a .jar file of the project
 **Files/folders in target :**
 - Creates a jar file :
-![exo6](img/capture6.png)
+![exo7](img/capture6.png)
 
 ### mvn verify
 **Difference from test :** 
@@ -113,7 +113,7 @@ I choose to test the deposit and withdraw methods :
     }   
 ```
 I ran my tests, they failed as depositMoney does not return a boolean value.
-![exo6](img/capture7.png)
+![exo8](img/capture7.png)
 
 My tests were correct so I decided to change that and adapted depositMoney accordingly :
 ```java
@@ -125,6 +125,57 @@ My tests were correct so I decided to change that and adapted depositMoney accor
         return false;
     }
 ```
-![exo6](img/capture8.png)
+![exo8](img/capture8.png)
 
-    
+## Exercise 9 (Repo 2): Increase coverage with JaCoCo
+I added the JaCoCo plugin :
+```xml
+<build>
+    <plugins>
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>0.8.11</version>
+        <executions>
+          <execution>
+            <id>jacoco-initialize</id>
+            <goals>
+              <goal>prepare-agent</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>jacoco-site</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>report</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+```
+I then ran :
+```bash
+    mvn clean test
+    mvn jacoco:report
+``` 
+I obtained this report :
+![exo9](img/capture9.png)
+
+For now, all my classes are low coverage :
+![exo9](img/capture10.png)
+
+I chose to test the method **getWithdrawLimit()** from the class **BankAccount** :
+![exo9](img/capture11.png)
+
+I added a simple test :
+```java
+    @Test
+    public void test_withdrawMoney() throws Exception {
+        assertEquals(500, bankAccount.getWithdrawLimit(), 0f);
+    }
+```
+I reran **mvn clean test** and **mvn jacoco:report**, and the coverage has indeed increased :
+![exo9](img/capture12.png)
+

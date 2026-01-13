@@ -59,15 +59,7 @@ public class BankAccountTest {
 
     @Test
     public void test_withdrawMoney() throws Exception {
-        int withdraw = 100;
-        bank.addAccount(bankAccount, accountId);
-
-        assertEquals(1000, bankAccount.getBalance(), 0f);
-        boolean res = bankAccount.withdrawMoney(withdraw);
-        assertTrue(res);
-        assertEquals(100, bankAccount.getAmountWithdrawn(), 0f);
-        assertEquals(900, bankAccount.getBalance(), 0f);
-
+        assertEquals(500, bankAccount.getWithdrawLimit(), 0f);
     }
 
     @Test
@@ -82,5 +74,17 @@ public class BankAccountTest {
         assertEquals(1000, bankAccount.getBalance(), 0f);
 
     }
+
+    @Test
+    public void test_getWithdrawLimit() {
+        int deposit = 100;
+        bank.addAccount(bankAccount, accountId);
+
+        assertEquals(1000, bankAccount.getBalance(), 0f);
+        boolean res = bankAccount.depositMoney(deposit);
+        assertTrue(res);
+        assertEquals(1100, bankAccount.getBalance(), 0f);
+    }
+
 
 }
