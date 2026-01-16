@@ -251,7 +251,7 @@ jobs:
 
 ## Exercise 11 (Repo 2): Cucumber for BankAccount
 
-J'ai complété les tests :
+I completed the tests as follows :
 
 ```java
     @Given("I have a new bank account")
