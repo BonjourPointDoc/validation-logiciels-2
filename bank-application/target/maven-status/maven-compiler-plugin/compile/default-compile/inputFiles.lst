@@ -1,7 +1,7 @@
-/home/val/Documents/Validation_logiciels/validation-logiciels-2/bank-application/src/main/java/ACHService.java
-/home/val/Documents/Validation_logiciels/validation-logiciels-2/bank-application/src/main/java/ACHServiceImpl.java
-/home/val/Documents/Validation_logiciels/validation-logiciels-2/bank-application/src/main/java/Bank.java
-/home/val/Documents/Validation_logiciels/validation-logiciels-2/bank-application/src/main/java/BankAccount.java
-/home/val/Documents/Validation_logiciels/validation-logiciels-2/bank-application/src/main/java/BankAccountApp.java
-/home/val/Documents/Validation_logiciels/validation-logiciels-2/bank-application/src/main/java/Person.java
+/home/val/Documents/Validation_logiciels/validation-logiciels-2/bank-application/src/main/java/bankAccountApp/ACHService.java
+/home/val/Documents/Validation_logiciels/validation-logiciels-2/bank-application/src/main/java/bankAccountApp/ACHServiceImpl.java
+/home/val/Documents/Validation_logiciels/validation-logiciels-2/bank-application/src/main/java/bankAccountApp/Bank.java
+/home/val/Documents/Validation_logiciels/validation-logiciels-2/bank-application/src/main/java/bankAccountApp/BankAccount.java
+/home/val/Documents/Validation_logiciels/validation-logiciels-2/bank-application/src/main/java/bankAccountApp/BankAccountApp.java
+/home/val/Documents/Validation_logiciels/validation-logiciels-2/bank-application/src/main/java/bankAccountApp/Person.java
 /home/val/Documents/Validation_logiciels/validation-logiciels-2/bank-application/src/main/java/com/imt/mines/App.java
